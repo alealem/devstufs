@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>com.innoplexia.buildDefinition</artifactId>
+		<groupId>com.innoplexia.buildDefinition</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.innoplexia.replex.steamApplication</groupId>
+	<artifactId>com.innoplexia.replex.steamApplication</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>com.innoplexia.replex.steamApplication</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+
+		<!-- The final name suppresses the version appendix for the java jar or 
+			war file. -->
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<!-- Ability to build a jar file. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.innoplexia.replex.steamApplication.Starter</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<!-- Test -->
+<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+		
+		<!-- Internal Dependencies -->
+
+		<dependency>
+			<groupId>com.innoplexia.replex.steamCrawler</groupId>
+			<artifactId>com.innoplexia.replex.steamCrawler</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.innoplexia.replex.steamDataAccess</groupId>
+			<artifactId>com.innoplexia.replex.steamDataAccess</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.innoplexia.ixDataAccess</groupId>
+			<artifactId>com.innoplexia.ixDataAccess</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<!-- External Dependencies - search @ mvnrepository.com -->
+
+		<!-- Log4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.directory.studio</groupId>
+			<artifactId>org.apache.commons.logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+	</dependencies>
+</project>
